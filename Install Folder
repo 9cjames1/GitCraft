@@ -1,0 +1,498 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var o=t[n]={exports:{}};e[n][0].call(o.exports,function(t){var o=e[n][1][t];return r(o||t)},o,o.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(e,t,n){function r(){}function o(e,t,n){return function(){return i(e,[f.now()].concat(u(arguments)),t?null:this,n),t?void 0:this}}var i=e("handle"),a=e(2),u=e(3),c=e("ee").get("tracer"),f=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,t){s[t]=o(d+t,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,o="function"==typeof t;return i(l+"tracer",[f.now(),e,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],n),o)try{return t.apply(this,arguments)}catch(e){throw c.emit("fn-err",[arguments,this,e],n),e}finally{c.emit("fn-end",[f.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=o(l+t)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,f.now()])}},{}],2:[function(e,t,n){function r(e,t){var n=[],r="",i=0;for(r in e)o.call(e,r)&&(n[i]=t(r,e[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],3:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,o=n-t||0,i=Array(o<0?0:o);++r<o;)i[r]=e[t+r];return i}t.exports=r},{}],4:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function o(e){function t(e){return e&&e instanceof r?e:e?c(e,u,i):i()}function n(n,r,o,i){if(!d.aborted||i){e&&e(n,r,o);for(var a=t(o),u=m(n),c=u.length,f=0;f<c;f++)u[f].apply(a,r);var p=s[y[n]];return p&&p.push([b,n,r,a]),a}}function l(e,t){v[e]=m(e).concat(t)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(n)}function g(e,t){f(e,function(e,n){t=t||"feature",y[n]=t,t in s||(s[t]=[])})}var v={},y={},b={on:l,emit:n,get:w,listeners:m,context:t,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",c=e("gos"),f=e(2),s={},p={},d=t.exports=o();d.backlog=s},{}],gos:[function(e,t,n){function r(e,t,n){if(o.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[t]=r,r}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){o.buffer([e],r),o.emit(e,t,n)}var o=e("ee").get("handle");t.exports=r,r.ee=o},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=h.info=NREUM.info,t=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return s.abort();f(y,function(t,n){e[t]||(e[t]=n)}),c("mark",["onload",a()+h.offset],null,"api");var n=d.createElement("script");n.src="https://"+e.agent,t.parentNode.insertBefore(n,t)}}function o(){"complete"===d.readyState&&i()}function i(){c("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),c=e("handle"),f=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1071.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=t.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),c("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+    
+    <title>Slimware Utilities</title>
+
+    <style>
+        html {
+            visibility: hidden;
+        }
+    </style>
+    <link rel="stylesheet" href="/css/vendor.5d3d624c7ff8fad2afccdea242fd53c9.css">
+    <link rel="stylesheet" href="/css/main.47981804a07806656994330461092f5d.css">
+    
+    
+            <script>window.slimwareData = window.slimwareData || {};slimwareData.buttonClickPixels = '["<script type=\\"text\\/javascript\\" src=\\"\\/\\/static.criteo.net\\/js\\/ld\\/ld.js\\" async=\\"true\\"><\\/script>\\n<script type=\\"text\\/javascript\\">\\n    window.criteo_q = window.criteo_q || [];\\n    var deviceType = \\/iPad\\/.test(navigator.userAgent) ? \\"t\\" : \\/Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Silk\\/.test(navigator.userAgent) ? \\"m\\" : \\"d\\";\\n    window.criteo_q.push(\\n    { event: \\"setAccount\\", account: 44737 },\\n    { event: \\"setSiteType\\", type: deviceType },\\n    { event: \\"trackTransaction\\", id: \\"eec85523-8c1c-42cf-8506-5ac0bd47acc3\\", user_segment: 1 ,deduplication: 0,\\n    item: [ { id: \\"1\\", price: \\"0\\", quantity: 1 } ]}\\n    );\\n<\\/script>","<script>(function(w,d,t,r,u){var f,n,i;w[u]=w[u]||[],f=function(){var o={ti:\\"5151794\\"};o.q=w[u],w[u]=new UET(o),w[u].push(\\"pageLoad\\")},n=d.createElement(t),n.src=r,n.async=1,n.onload=n.onreadystatechange=function(){var s=this.readyState;s&&s!==\\"loaded\\"&&s!==\\"complete\\"||(f(),n.onload=n.onreadystatechange=null)},i=d.getElementsByTagName(t)[0],i.parentNode.insertBefore(n,i)})(window,document,\\"script\\",\\"\\/\\/bat.bing.com\\/bat.js\\",\\"uetq\\");<\\/script><noscript><img src=\\"\\/\\/bat.bing.com\\/action\\/0?ti=5151794&Ver=2\\" height=\\"0\\" width=\\"0\\" style=\\"display:none; visibility: hidden;\\" \\/><\\/noscript>"]';</script><script>window.slimwareData = window.slimwareData || {};slimwareData.locale = 'en';</script><script>window.slimwareData = window.slimwareData || {};slimwareData.convertTest = true;slimwareData.abTestingData = {"driverName":"Windows<sup>&reg;<\/sup> 10","osName":"Windows<sup>&reg;<\/sup> 10","keyword":null};</script>        <script data-vendor="convert" data-type="variables" data-source="unified">
+    window.SLIMWARE = window.SLIMWARE || {};
+        window.SLIMWARE["campaign"] = "xdm250";
+    </script>
+
+        
+	<script data-vendor="convert" data-type="main" src="//cdn-3.convertexperiments.com/js/10004858-10005575.js"></script>
+	<script data-vendor="convert" data-type="site" src="//cdn.slimwareutilities.com/web_assets/js/convert/convert.js?20170316"></script>
+
+
+	<!--[if lte IE 8]>
+    <script src="//cdn.slimwareutilities.com/web_assets/js/json2.min.js?20170316"></script>
+	<![endif]-->
+    <script src="//cdn.slimwareutilities.com/web_assets/js/cookie.min.js?20170316"></script>
+    <script data-vendor="convert" data-type="backfillProps" data-source="unified">
+        var swu_backfillProps = {"namespace":"SlimWare","eventId":"808f012a-c8e1-4dea-9ca5-e6b98dd512a6","backfillUrl":"\/api\/ul_backfill","debug":false,"app":{}};
+    </script>
+    <script data-vendor="convert" data-type="backfill" src="//cdn.slimwareutilities.com/web_assets/js/convert/ul-backfill-convert.js?20170323"></script>
+
+        <script type="text/javascript" src="//static.criteo.net/js/ld/ld.js" async="true"></script>
+<script type="text/javascript">
+    window.criteo_q = window.criteo_q || [];
+    var deviceType = /iPad/.test(navigator.userAgent) ? "t" : /Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Silk/.test(navigator.userAgent) ? "m" : "d";
+    window.criteo_q.push(
+    { event: "setAccount", account: 44737 },
+    { event: "setSiteType", type: deviceType },
+    { event: "viewItem", item: "1" }
+    );
+</script>
+
+        <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create', 'UA-40453339-6', 'auto', 't0');ga('set', 'anonymizeIp', true);ga('send', 'pageview');</script>
+        <!-- Hotjar Tracking Code for https://slimware.com -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:589445,hjsv:5};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+    </head>
+<body class="landing_1_driverupdate lang-en">
+
+<div id="app">
+    
+    
+        <!-- MENU-->
+<nav class="main-menu productpage--driverupdate-1">
+    <div class="container d-flex justify-content-between">
+        <div class="logo">
+            <svg class="logo logo-driverupdate--solid--short"><use xlink:href="https://slimware.com/icons/logos.svg#driverupdate--solid--short"></use></svg>
+        </div>
+        <div class="logo">
+            <img src="https://slimware.com/images/logos/su_final_grayShield.png" alt="Slimware Utilities">
+        </div>
+    </div>
+</nav>
+
+        <div class="productpage productpage--driverupdate-1">
+        <!-- HERO-->
+        <header class="hero">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-md-7 col-sm-12">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <h1>
+                                    Windows<sup>&reg;</sup> 10 Drivers                                </h1>
+                            </div>
+                        </div>
+                        <div class="row system-info">
+                            <div class="col-lg-12">
+                                <img class="float-left" id="shield-logo" src="https://slimware.com/images/icons/windows/icon_swu_60_x_49_w_tm.png">
+                                <p>
+                                    <strong>
+                                        System information:                                    </strong>
+                                    <br/>
+                                    Your machine is currently running: <strong>Windows<sup>&reg;</sup> 10</strong>                                    <br/>
+                                    The <em>DriverUpdate™</em> utility is compatible with your operating system                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-5 col-sm-12">
+                        <div class="row partners-logos">
+                                                            <svg class="logo logo-microsoft--solid"><use xlink:href="https://slimware.com/icons/logos.svg#microsoft--solid"></use></svg>
+                                                        <a href="https://www.mcafeesecure.com/verify?host=https://www.slimware.com">
+                                <img src="https://slimware.com/images/pages/landing/driverupdate/1/mc_afee.png">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row download-info">
+            <div class="col-lg-5 col-md-7">
+            <a class="download-now-btn button--clear sdh-trigger dl_link product-download-action" href="https://slimware.com/download/driverupdate?upl=c1%3AeJx1jc1uwjAQhJ-G3BIlDoZy8CFAqFKooA0F9YTWsQmu4h_ZcaFvX0NF1UtvM7Oz3_ju4HpPBSP0SEcAbBwDHubxECiNg83jyRixrMHpGNNh5LtDo6kFxUi9RzcL0oBoFbkwiXB6jdyNVxYVVC-azk7PVbcW6wld7lFb7VZOfUwv6IkV7K0syveiLoqyXUq9mR-m5zIC9mi1N-SVO6OVE598ti0iYzXzTf-z6riteSu56t0AT2vR8wGeBzXXEoQKmrhOyDNYnjRa_t_fQHtVZIAWzIYh6w2DcESLLKJWn8Pf9stwMjtZLfk92nHrhFZkhJM0yXOEk-zht78C1fqAJVzF3kWmg_6orVzXZC8UC5U_0R2UpUn6DdXahoA&tid3=ResponsiveCTA" data-sdh-product="du">
+  <svg class="icon-download"><use xlink:href="https://slimware.com/icons/symbols.svg#download"></use></svg>
+  <span>Start Download</span>
+</a>
+        </div>
+    
+    <div class="col-lg-7 col-md-5 align-content-sm-center">
+        <p>
+            <strong>Download Time:</strong> Under 2 minutes<br/>
+            <strong>Manufacturer:</strong> Slimware Utilities™<br/>
+            <strong>Designed for:</strong> Windows<sup>&reg;</sup> 10 Operating System        </p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12 price-disclosure">
+      <p>
+        Free Scan for Windows® 10, 8, 7, Vista & XP Operating Systems. Charges apply for license with premium features. See registration process for full details.      </p>
+    </div>
+</div>
+            </div>
+        </header>
+
+        <section class="instructions">
+            <div class="container">
+                <div class="row instructions-header">
+                    <div class="col-xl-12">
+                        <p>
+                            Download the <em>DriverUpdate™</em> Utility to scan and identify out-of-date Windows<sup>&reg;</sup> 10 Drivers. Update your PC with the correct Windows<sup>&reg;</sup> 10 Drivers with our full-featured product:                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xl-12">
+                        <ul>
+                            <li>
+                                Scan your PC for out-of-date Windows<sup>&reg;</sup> 10 drivers with one click                            </li>
+                            <li>
+                                Gives you a full report of out-of-date drivers                            </li>
+                            <li>
+                                Compare your PC against our vast Cloud database of Windows<sup>&reg;</sup> 10 drivers                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-9 arrows-container">
+                        <img class="hidden-xs block-sm" src="https://slimware.com/images/pages/landing/driverupdate/1/en/arrows_icons_text.png"/>
+                        <img class="flex-xs hidden-sm" src="https://slimware.com/images/pages/landing/driverupdate/1/en/down_arrows_icons_text.png"/>
+
+                        <a class="hidden-xs block-sm sdh-trigger dl_link arrow1_action" href="https://slimware.com/download/driverupdate?upl=c1%3AeJx1jc1uwjAQhJ-G3BIlDoZy8CFAqFKooA0F9YTWsQmu4h_ZcaFvX0NF1UtvM7Oz3_ju4HpPBSP0SEcAbBwDHubxECiNg83jyRixrMHpGNNh5LtDo6kFxUi9RzcL0oBoFbkwiXB6jdyNVxYVVC-azk7PVbcW6wld7lFb7VZOfUwv6IkV7K0syveiLoqyXUq9mR-m5zIC9mi1N-SVO6OVE598ti0iYzXzTf-z6riteSu56t0AT2vR8wGeBzXXEoQKmrhOyDNYnjRa_t_fQHtVZIAWzIYh6w2DcESLLKJWn8Pf9stwMjtZLfk92nHrhFZkhJM0yXOEk-zht78C1fqAJVzF3kWmg_6orVzXZC8UC5U_0R2UpUn6DdXahoA&tid3=ResponsiveCTA" data-locale="en" data-sdh-product="du"></a>
+                    </div>
+                                            <div class="col-sm-3 download-container">
+                            <a class="download-now-btn button--clear sdh-trigger dl_link" href="https://slimware.com/download/driverupdate?upl=c1%3AeJx1jc1uwjAQhJ-G3BIlDoZy8CFAqFKooA0F9YTWsQmu4h_ZcaFvX0NF1UtvM7Oz3_ju4HpPBSP0SEcAbBwDHubxECiNg83jyRixrMHpGNNh5LtDo6kFxUi9RzcL0oBoFbkwiXB6jdyNVxYVVC-azk7PVbcW6wld7lFb7VZOfUwv6IkV7K0syveiLoqyXUq9mR-m5zIC9mi1N-SVO6OVE598ti0iYzXzTf-z6riteSu56t0AT2vR8wGeBzXXEoQKmrhOyDNYnjRa_t_fQHtVZIAWzIYh6w2DcESLLKJWn8Pf9stwMjtZLfk92nHrhFZkhJM0yXOEk-zht78C1fqAJVzF3kWmg_6orVzXZC8UC5U_0R2UpUn6DdXahoA&tid3=ResponsiveCTA" data-sdh-product="du">
+                                <span>Start Download</span>
+                            </a>
+                        </div>
+                                    </div>
+            </div>
+        </section>
+
+        <section class="du-features">
+            <div class="container">
+                <div class="row feature-list">
+                    <div class="col-md-4">
+                        <ul>
+                            <li>
+                                <div class="row">
+                                    <div class="col-1 feature-icon">
+                                        <img src="https://slimware.com/images/pages/landing/driverupdate/1/icn_du_shield_outline.png">
+                                    </div>
+                                    <div class="col-11 feature-bullet">
+                                        DriverUpdate™ Premium Utility Software                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="row">
+                                    <div class="col-1 feature-icon">
+                                        <img class="feature-icon" src="https://slimware.com/images/pages/landing/driverupdate/1/icn_display.png">
+                                    </div>
+
+                                    <div class="col-11 feature-bullet">
+                                        Update your PC’s Windows® Drivers*                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="row">
+                                    <div class="col-1 feature-icon">
+                                        <img class="feature-icon" src="https://slimware.com/images/pages/landing/driverupdate/1/icn_gear.png">
+                                    </div>
+
+                                    <div class="col-11 feature-bullet">
+                                        Optimize Hardware Performance                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="row">
+                                    <div class="col-1 feature-icon">
+                                        <img class="feature-icon" src="https://slimware.com/images/pages/landing/driverupdate/1/icn_stopwatch.png">
+                                    </div>
+
+                                    <div class="col-11 feature-bullet">
+                                        Rapidly Target Out-of-Date Drivers                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="row">
+                                    <div class="col-1 feature-icon">
+                                        <img class="feature-icon" src="https://slimware.com/images/pages/landing/driverupdate/1/icn_down_arrow_blue.png">
+                                    </div>
+
+                                    <div class="col-11 feature-bullet">
+                                        Download up-to-date Official Drivers in One Click with Our Premium Feature                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-8">
+                        <h2>
+                            Update your PC’s Windows<sup>&reg;</sup> 10 Drivers*                        </h2>
+
+                        <div class="row feature-blocks">
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="feature-block">
+                                            <div class="feature-header">
+                                                <h4>
+                                                    FREE Feature:                                                </h4>
+                                            </div>
+                                            <div class="feature-icon">
+                                                <img src="https://slimware.com/images/pages/landing/driverupdate/1/icn_scan_gray.png">
+                                            </div>
+                                            <div class="feature-content">
+                                                <h5>
+                                                    Free Scan, No risk                                                </h5>
+                                                <p>
+                                                    Take a free scan today with DriverUpdate™ and check your PC for out-of date Windows® drivers                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="feature-block">
+                                            <div class="feature-header">
+                                                <h4>
+                                                    Premium Feature:                                                </h4>
+                                            </div>
+                                            <div class="feature-icon">
+                                                <img src="https://slimware.com/images/pages/landing/driverupdate/1/icn_touch.png">
+                                            </div>
+                                            <div class="feature-content">
+                                                <h5>
+                                                    Update Drivers                                                </h5>
+                                                <p>
+                                                    Choose to download the correct Windows® Drivers by using the one-click premium feature in the DriverUpdate™ interface.                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="feature-block">
+                                            <div class="feature-header">
+                                                <h4>
+                                                    Premium Feature:                                                </h4>
+                                            </div>
+                                            <div class="feature-icon">
+                                                <img src="https://slimware.com/images/pages/landing/driverupdate/1/icn_stability.png">
+                                            </div>
+                                            <div class="feature-content">
+                                                <h5>
+                                                    Optimize PC performance                                                </h5>
+                                                <p>
+                                                    Review & update drivers to prevent potential issues that can arise when a driver becomes obsolete or incompatible.                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row features-bottom">
+                                    <div class="col-lg-2 col-md-3 col-sm-2 align-t">
+                                        <img src="https://slimware.com/images/pages/landing/driverupdate/1/icn_cloud.png">
+                                    </div>
+                                    <div class="col-lg-10 col-md-9 col-sm-10">
+                                        <h4>
+                                            Access our dynamic cloud database for the latest Windows<sup>&reg;</sup> 10 drivers.                                        </h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="download-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="float-right">
+                            <a href="https://www.mcafeesecure.com/verify?host=https://www.slimware.com">
+                                <img src="https://slimware.com/images/pages/landing/driverupdate/1/mc_afee.png">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row download-info">
+            <div class="col-lg-5 col-md-7">
+            <a class="download-now-btn button--clear sdh-trigger dl_link product-download-action" href="https://slimware.com/download/driverupdate?upl=c1%3AeJx1jc1uwjAQhJ-G3BIlDoZy8CFAqFKooA0F9YTWsQmu4h_ZcaFvX0NF1UtvM7Oz3_ju4HpPBSP0SEcAbBwDHubxECiNg83jyRixrMHpGNNh5LtDo6kFxUi9RzcL0oBoFbkwiXB6jdyNVxYVVC-azk7PVbcW6wld7lFb7VZOfUwv6IkV7K0syveiLoqyXUq9mR-m5zIC9mi1N-SVO6OVE598ti0iYzXzTf-z6riteSu56t0AT2vR8wGeBzXXEoQKmrhOyDNYnjRa_t_fQHtVZIAWzIYh6w2DcESLLKJWn8Pf9stwMjtZLfk92nHrhFZkhJM0yXOEk-zht78C1fqAJVzF3kWmg_6orVzXZC8UC5U_0R2UpUn6DdXahoA&tid3=ResponsiveCTA" data-sdh-product="du">
+  <svg class="icon-download"><use xlink:href="https://slimware.com/icons/symbols.svg#download"></use></svg>
+  <span>Start Download</span>
+</a>
+        </div>
+    
+    <div class="col-lg-7 col-md-5 align-content-sm-center">
+        <p>
+            <strong>Download Time:</strong> Under 2 minutes<br/>
+            <strong>Manufacturer:</strong> Slimware Utilities™<br/>
+            <strong>Designed for:</strong> Windows<sup>&reg;</sup> 10 Operating System        </p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12 price-disclosure">
+      <p>
+        Free Scan for Windows® 10, 8, 7, Vista & XP Operating Systems. Charges apply for license with premium features. See registration process for full details.      </p>
+    </div>
+</div>
+            </div>
+        </section>
+    </div>
+
+    <div class="modal fade" id="vulnerability-popup" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <p>
+        Due to the recent Windows® updates for the Meltdown security vulnerabilities, you may need to re-install the latest version of the DriverUpdate<span class="small">™</span> application. Please click the Download Now button.    </p>
+
+    <div>
+        <a class="download-now-btn button--clear sdh-trigger dl_link product-download-action"
+           href="https://slimware.com/download/driverupdate?upl=c1%3AeJx1jc1uwjAQhJ-G3BIlDoZy8CFAqFKooA0F9YTWsQmu4h_ZcaFvX0NF1UtvM7Oz3_ju4HpPBSP0SEcAbBwDHubxECiNg83jyRixrMHpGNNh5LtDo6kFxUi9RzcL0oBoFbkwiXB6jdyNVxYVVC-azk7PVbcW6wld7lFb7VZOfUwv6IkV7K0syveiLoqyXUq9mR-m5zIC9mi1N-SVO6OVE598ti0iYzXzTf-z6riteSu56t0AT2vR8wGeBzXXEoQKmrhOyDNYnjRa_t_fQHtVZIAWzIYh6w2DcESLLKJWn8Pf9stwMjtZLfk92nHrhFZkhJM0yXOEk-zht78C1fqAJVzF3kWmg_6orVzXZC8UC5U_0R2UpUn6DdXahoA&tid3=ResponsiveCTA"
+           data-sdh-product="du">
+            <span>Download Now</span>
+        </a>
+    </div>
+            </div>
+        </div>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+</div>
+
+
+        <footer class="productpage--driverupdate-1 main-footer">
+        <div class="container">
+            <ul class="">
+                                    <li>
+                                                <a class="" href="https://slimware.com?upl=c1%3AeJx1jc1uwjAQhJ-G3BIlDoZy8CFAqFKooA0F9YTWsQmu4h_ZcaFvX0NF1UtvM7Oz3_ju4HpPBSP0SEcAbBwDHubxECiNg83jyRixrMHpGNNh5LtDo6kFxUi9RzcL0oBoFbkwiXB6jdyNVxYVVC-azk7PVbcW6wld7lFb7VZOfUwv6IkV7K0syveiLoqyXUq9mR-m5zIC9mi1N-SVO6OVE598ti0iYzXzTf-z6riteSu56t0AT2vR8wGeBzXXEoQKmrhOyDNYnjRa_t_fQHtVZIAWzIYh6w2DcESLLKJWn8Pf9stwMjtZLfk92nHrhFZkhJM0yXOEk-zht78C1fqAJVzF3kWmg_6orVzXZC8UC5U_0R2UpUn6DdXahoA">Home</a>
+                    </li>
+                                    <li>
+                                                    <span class="separator">|</span>
+                                                <a class="" href="https://slimware.com/about?upl=c1%3AeJx1jc1uwjAQhJ-G3BIlDoZy8CFAqFKooA0F9YTWsQmu4h_ZcaFvX0NF1UtvM7Oz3_ju4HpPBSP0SEcAbBwDHubxECiNg83jyRixrMHpGNNh5LtDo6kFxUi9RzcL0oBoFbkwiXB6jdyNVxYVVC-azk7PVbcW6wld7lFb7VZOfUwv6IkV7K0syveiLoqyXUq9mR-m5zIC9mi1N-SVO6OVE598ti0iYzXzTf-z6riteSu56t0AT2vR8wGeBzXXEoQKmrhOyDNYnjRa_t_fQHtVZIAWzIYh6w2DcESLLKJWn8Pf9stwMjtZLfk92nHrhFZkhJM0yXOEk-zht78C1fqAJVzF3kWmg_6orVzXZC8UC5U_0R2UpUn6DdXahoA">About Us</a>
+                    </li>
+                                    <li>
+                                                    <span class="separator">|</span>
+                                                <a class="" href="https://slimware.com/support?upl=c1%3AeJx1jc1uwjAQhJ-G3BIlDoZy8CFAqFKooA0F9YTWsQmu4h_ZcaFvX0NF1UtvM7Oz3_ju4HpPBSP0SEcAbBwDHubxECiNg83jyRixrMHpGNNh5LtDo6kFxUi9RzcL0oBoFbkwiXB6jdyNVxYVVC-azk7PVbcW6wld7lFb7VZOfUwv6IkV7K0syveiLoqyXUq9mR-m5zIC9mi1N-SVO6OVE598ti0iYzXzTf-z6riteSu56t0AT2vR8wGeBzXXEoQKmrhOyDNYnjRa_t_fQHtVZIAWzIYh6w2DcESLLKJWn8Pf9stwMjtZLfk92nHrhFZkhJM0yXOEk-zht78C1fqAJVzF3kWmg_6orVzXZC8UC5U_0R2UpUn6DdXahoA">Support</a>
+                    </li>
+                                    <li>
+                                                    <span class="separator">|</span>
+                                                <a class="" href="https://slimware.com/tos?upl=c1%3AeJx1jc1uwjAQhJ-G3BIlDoZy8CFAqFKooA0F9YTWsQmu4h_ZcaFvX0NF1UtvM7Oz3_ju4HpPBSP0SEcAbBwDHubxECiNg83jyRixrMHpGNNh5LtDo6kFxUi9RzcL0oBoFbkwiXB6jdyNVxYVVC-azk7PVbcW6wld7lFb7VZOfUwv6IkV7K0syveiLoqyXUq9mR-m5zIC9mi1N-SVO6OVE598ti0iYzXzTf-z6riteSu56t0AT2vR8wGeBzXXEoQKmrhOyDNYnjRa_t_fQHtVZIAWzIYh6w2DcESLLKJWn8Pf9stwMjtZLfk92nHrhFZkhJM0yXOEk-zht78C1fqAJVzF3kWmg_6orVzXZC8UC5U_0R2UpUn6DdXahoA">Terms of Service</a>
+                    </li>
+                                    <li>
+                                                    <span class="separator">|</span>
+                                                <a class="" href="https://slimware.com/privacy/driverupdate?upl=c1%3AeJx1jc1uwjAQhJ-G3BIlDoZy8CFAqFKooA0F9YTWsQmu4h_ZcaFvX0NF1UtvM7Oz3_ju4HpPBSP0SEcAbBwDHubxECiNg83jyRixrMHpGNNh5LtDo6kFxUi9RzcL0oBoFbkwiXB6jdyNVxYVVC-azk7PVbcW6wld7lFb7VZOfUwv6IkV7K0syveiLoqyXUq9mR-m5zIC9mi1N-SVO6OVE598ti0iYzXzTf-z6riteSu56t0AT2vR8wGeBzXXEoQKmrhOyDNYnjRa_t_fQHtVZIAWzIYh6w2DcESLLKJWn8Pf9stwMjtZLfk92nHrhFZkhJM0yXOEk-zht78C1fqAJVzF3kWmg_6orVzXZC8UC5U_0R2UpUn6DdXahoA">Privacy Policy</a>
+                    </li>
+                                    <li>
+                                                    <span class="separator">|</span>
+                                                <a class="" href="https://slimware.com/eula?upl=c1%3AeJx1jc1uwjAQhJ-G3BIlDoZy8CFAqFKooA0F9YTWsQmu4h_ZcaFvX0NF1UtvM7Oz3_ju4HpPBSP0SEcAbBwDHubxECiNg83jyRixrMHpGNNh5LtDo6kFxUi9RzcL0oBoFbkwiXB6jdyNVxYVVC-azk7PVbcW6wld7lFb7VZOfUwv6IkV7K0syveiLoqyXUq9mR-m5zIC9mi1N-SVO6OVE598ti0iYzXzTf-z6riteSu56t0AT2vR8wGeBzXXEoQKmrhOyDNYnjRa_t_fQHtVZIAWzIYh6w2DcESLLKJWn8Pf9stwMjtZLfk92nHrhFZkhJM0yXOEk-zht78C1fqAJVzF3kWmg_6orVzXZC8UC5U_0R2UpUn6DdXahoA">EULA</a>
+                    </li>
+                                    <li>
+                                                    <span class="separator">|</span>
+                                                <a class="" href="http://support.slimware.com/SlimwareProductHome?pType=dUpdate&amp;sctype=Driver_Update&amp;pName=Driver%20Update">Contact Us</a>
+                    </li>
+                                    <li>
+                                                    <span class="separator">|</span>
+                                                <a class="" href="http://support.slimware.com/SlimwareAnswer?pType=dUpdate&amp;sctype=Driver_Update&amp;urlName=How-do-I-uninstall-DriverUpdate&amp;CatgName=&amp;catLabel=&amp;searchType=search&amp;searcStr=How%20do%20I%20uninstall%20DriverUpdate?&amp;pName=Driver%20Update">Uninstall</a>
+                    </li>
+                            </ul>
+            <p class="copyright">
+                <a href="https://slimware.com?upl=c1%3AeJx1jc1uwjAQhJ-G3BIlDoZy8CFAqFKooA0F9YTWsQmu4h_ZcaFvX0NF1UtvM7Oz3_ju4HpPBSP0SEcAbBwDHubxECiNg83jyRixrMHpGNNh5LtDo6kFxUi9RzcL0oBoFbkwiXB6jdyNVxYVVC-azk7PVbcW6wld7lFb7VZOfUwv6IkV7K0syveiLoqyXUq9mR-m5zIC9mi1N-SVO6OVE598ti0iYzXzTf-z6riteSu56t0AT2vR8wGeBzXXEoQKmrhOyDNYnjRa_t_fQHtVZIAWzIYh6w2DcESLLKJWn8Pf9stwMjtZLfk92nHrhFZkhJM0yXOEk-zht78C1fqAJVzF3kWmg_6orVzXZC8UC5U_0R2UpUn6DdXahoA" title="Slimware Utilities Holdings, Inc.">
+                    &copy; 2009&ndash;2018 <span class="text-capitalize">Slimware Utilities Holdings, Inc. All Rights Reserved.</span>
+                </a>
+            </p>
+            <div class="remarks">
+                Drivers may also be available for free directly from manufacturers' websites. *Charges apply for a license with premium features. DriverUpdate and SlimCleaner Plus are trademarks of Slimware Utilities Holdings, Inc. Microsoft and Windows are either registered trademarks or trademarks of Microsoft Corporation in the United States and/or other countries. Other third-party marks listed above are the sole property of their respective owner. No affiliation or endorsement is intended or implied.            </div>
+                    </div>
+    </footer>
+</div>
+
+<script src="/js/manifest.d41d8cd98f00b204e980.js"></script>
+<script src="/js/download.7b845cf5cae9b2180a9f.js"></script>
+<script src="/js/vendor.d3b12bfcbdd400795bdc.js"></script>
+<script src="/js/main.c5b15231abbd3f417660.js"></script>
+
+        <script>(function(w,d,t,r,u){var f,n,i;w[u]=w[u]||[],f=function(){var o={ti:"5151793"};o.q=w[u],w[u]=new UET(o),w[u].push("pageLoad")},n=d.createElement(t),n.src=r,n.async=1,n.onload=n.onreadystatechange=function(){var s=this.readyState;s&&s!=="loaded"&&s!=="complete"||(f(),n.onload=n.onreadystatechange=null)},i=d.getElementsByTagName(t)[0],i.parentNode.insertBefore(n,i)})(window,document,"script","//bat.bing.com/bat.js","uetq");</script><noscript><img src="//bat.bing.com/action/0?ti=5151793&Ver=2" height="0" width="0" style="display:none; visibility: hidden;" /></noscript>
+<script type="application/javascript">(function(w,d,t,r,u){w[u]=w[u]||[];w[u].push({'projectId':'10000','properties':{'pixelId':'431790'}});var s=d.createElement(t);s.src=r;s.async=true;s.onload=s.onreadystatechange=function(){var y,rs=this.readyState,c=w[u];if(rs&&rs!="complete"&&rs!="loaded"){return}try{y=YAHOO.ywa.I13N.fireBeacon;w[u]=[];w[u].push=function(p){y([p])};y(c)}catch(e){}};var scr=d.getElementsByTagName(t)[0],par=scr.parentNode;par.insertBefore(s,scr)})(window,document,"script","https://s.yimg.com/wi/ytc.js","dotq");</script>
+<!-- Code for Action: 6.27.17 Slimware Universal Pixel -->
+<!-- Begin Rocket Fuel Conversion Action Tracking Code Version 9 -->
+<script type='text/javascript'>
+(function() {
+	var w = window, d = document;
+	var s = d.createElement('script');
+	s.setAttribute('async', 'true');
+	s.setAttribute('type', 'text/javascript');
+	s.setAttribute('src', '//c1.rfihub.net/js/tc.min.js');
+	var f = d.getElementsByTagName('script')[0];
+	f.parentNode.insertBefore(s, f);
+	if (typeof w['_rfi'] !== 'function') {
+		w['_rfi']=function() {
+			w['_rfi'].commands = w['_rfi'].commands || [];
+			w['_rfi'].commands.push(arguments);
+		};
+	}
+	_rfi('setArgs', 'ver', '9');
+	_rfi('setArgs', 'rb', '31665');
+	_rfi('setArgs', 'ca', '20774131');
+	_rfi('setArgs', '_o', '31665');
+	_rfi('setArgs', '_t', '20774131');
+	_rfi('track');
+})();
+</script>
+<noscript>
+  <iframe src='//20774131p.rfihub.com/ca.html?rb=31665&ca=20774131&_o=31665&_t=20774131&ra=1522493688' style='display:none;padding:0;margin:0' width='0' height='0'>
+</iframe>
+</noscript>
+<!-- End Rocket Fuel Conversion Action Tracking Code Version 9 -->
+<!-- OwnerIQ Analytics tag -->
+<!-- IAC Apps  - IAC Apps - Analytic -->
+<script type="text/javascript">
+window._oiqq = window._oiqq || [];
+_oiqq.push(['oiq_addPageLifecycle', 'okmk']);
+_oiqq.push(['oiq_doTag']);
+(function() {
+var oiq = document.createElement('script'); oiq.type = 'text/javascript'; oiq.async = true;
+oiq.src = document.location.protocol + '//px.owneriq.net/stas/s/l6z3qk.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(oiq, s);
+})();
+</script>
+<!-- End OwnerIQ tag -->
+<!-- Google Code for Remarketing Tag -->
+<!--------------------------------------------------
+Remarketing tags may not be associated with personally identifiable information or placed on pages related to sensitive categories. See more information and instructions on how to setup the tag on: http://google.com/ads/remarketingsetup
+--------------------------------------------------->
+<script type="text/javascript">
+/* <![CDATA[ */ 
+var google_conversion_id = 1070819436;
+var google_conversion_label = "fDgfCPTp7wcQ7NDN_gM";
+var google_custom_params = window.google_tag_params;
+var google_remarketing_only = true;
+/* ]]> */
+</script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/1070819436/?label=fDgfCPTp7wcQ7NDN_gM&amp;guid=ON&amp;script=0"/>
+</div>
+</noscript>
+
+    <script src="https://cdn.ywxi.net/js/1.js" async></script>
+
+    <script data-vendor="convert" data-type="goal">
+    CONVERT.splashLandingClicked()</script>
+
+    
+
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"c30a5da13a","applicationID":"48221675","transactionName":"ZgZQY0BZC0QDUkALVl9Mc1RGUQpZTV1VDF1YDVU=","queueTime":0,"applicationTime":293,"atts":"SkFTFQhDGEo=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>
